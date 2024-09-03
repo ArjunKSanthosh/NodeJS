@@ -37,49 +37,52 @@
     <div class="container">
         <div class="cont1">
             <h2>Add user</h2>
-            <table>
-                <tr>
-                    <td>Name</td>
-                    <td>:</td>
-                    <td colspan="3"><input type="text" name="" id="" class="ip"></td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>:</td>
-                    <td colspan="3"><input type="text" name="" id="" class="ip"></td>
-                </tr>
-                <tr>
-                    <td>Phone</td>
-                    <td>:</td>
-                    <td colspan="3"><input type="text" name="" id="" class="ip"></td>
-                </tr>
-                <tr>
-                    <td>Blood Group</td>
-                    <td>:</td>
-                    <td colspan="3"><input type="text" name="" id="" class="ip"></td>
-                </tr>
-                <tr>
-                    <td>Gender</td>
-                    <td>:</td>
-                    <td>
-                        <input type="radio" name="gender" id="male" value="Male">
-                        <label for="male">Male</label>
-                    </td>
-                    <td>
-                        <input type="radio" name="gender" id="male" value="Male">
-                        <label for="male">Male</label>
-                    </td>
-                    <td>
-                        <input type="radio" name="gender" id="male" value="Male">
-                        <label for="male">Male</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button>Sign in</button>
-                    </td>
-                </tr>
-            </table>
+            <form  method="post"  action="/submit">
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td colspan="3"><input type="text" name="name" id="name" class="ip"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td colspan="3"><input type="text" name="email" id="email" class="ip"></td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>:</td>
+                        <td colspan="3"><input type="text" name="phone" id="phone" class="ip"></td>
+                    </tr>
+                    <tr>
+                        <td>Blood Group</td>
+                        <td>:</td>
+                        <td colspan="3"><input type="text" name="bgroup" id="bgroup" class="ip"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>:</td>
+                        <td>
+                            <input type="radio" name="gender" id="male" value="Male">
+                            <label for="male">Male</label>
+                        </td>
+                        <td>
+                            <input type="radio" name="gender" id="male" value="Male">
+                            <label for="male">Male</label>
+                        </td>
+                        <td>
+                            <input type="radio" name="gender" id="male" value="Male">
+                            <label for="male">Male</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button>Sign in</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+           
             
         </div>
     </div>
