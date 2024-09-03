@@ -2,9 +2,13 @@ const http = require("http");
 const fs = require("fs")
 const url =require("url");
 const queryString=require("querystring");
-const{MongoClient}=require("mongodb");
-const client=new MongoClient("mongdb://........")
+const {MongoClient}=require("mongodb");
+const client=new MongoClient("mongodb://127.0.0.1:27017/")
 const app =http.createServer((req,res)=>{
+    //createdatabase
+    const db=client.db("BloodDonors");
+    //create collection
+    const collection=db.collection("donors");
     const path=url.parse(req.url);
     console.log(path);
     console.log(req.method);

@@ -6,31 +6,59 @@
     <title>Document</title>
 </head>
 <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
     .container{
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
     }
     .cont1{
         width: 40%;
-        height: 60vh;
-        background-color: aqua;
-     
-       
+        height: 68vh;
+        background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        
     }
     table{
         width: 90%;
-        margin-left: 10%;
+        margin-left: 8%;
         margin-top: 10%;
-        height: 30vh;
+        height: 40vh;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-shadow: 2px 2px 4px #000000;
+        font-weight: bold;
+
     }
     .ip{
         padding: 10px 120px;
+        
     }
     h2{
+        margin-top: 5%;
+        color: white;
         text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 40px;
+        text-shadow: 4px 4px 10px #000000;
+
     }
+    button{
+        padding: 10px 12px;    
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;        border:none;       
+    }
+    input{
+        padding:10px 15px;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;            
+        border:none;       
+     }
    
 </style>
 <body>
@@ -67,16 +95,16 @@
                             <label for="male">Male</label>
                         </td>
                         <td>
-                            <input type="radio" name="gender" id="male" value="Male">
-                            <label for="male">Male</label>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label for="male">Female</label>
                         </td>
                         <td>
-                            <input type="radio" name="gender" id="male" value="Male">
-                            <label for="male">Male</label>
+                            <input type="radio" name="gender" id="others" value="others">
+                            <label for="male">Others</label>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="3">
                             <button>Sign in</button>
                         </td>
                     </tr>
