@@ -13,11 +13,29 @@ async function getDonors() {
         <div class="bts">
             <button style="background-color: blue;" class="bt2">Edit</button>
             <button style="background-color: green;"class="bt2">Save</button>
-            <button style="background-color: red;" class="bt2"  onclick=`handleDelete()${_id}`>Delete</button>
+            <button style="background-color: red;" class="bt2" onclick="handleDelete('${dt._id}')">Delete</button>
         </div>`
     })
     document.getElementById("inputs").innerHTML=str
     
 }
 getDonors()
-async function handleDelete()
+async function handleDelete(id){
+    console.log("hhh");
+    
+    const res=await fetch("http://localhost:3000/delete",{
+        method:"DELETE",
+        headers:{"Content-Type":"text/plain"},
+        "body":id
+    })
+    console.log(res);
+    const data=await res.text()
+    if(data=="success"){
+        alert("succesfully deleted");
+        getDonors()
+    }
+    else{
+        alert("Deletion Failed")
+    }
+    
+}

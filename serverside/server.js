@@ -3,7 +3,7 @@ const http = require("http");
 const fs = require("fs")
 const url =require("url");
 const queryString=require("querystring");
-const {MongoClient}=require("mongodb");
+const {MongoClient,ObjectId}=require("mongodb");
 const client=new MongoClient("mongodb://127.0.0.1:27017/")
 const app =http.createServer(async(req,res)=>{
     //createdatabase
@@ -55,7 +55,7 @@ const app =http.createServer(async(req,res)=>{
         res.writeHead(200,{"Content-Type":"text/json"});
         res.end(jsonData);
     }
-    if(path.pathname=="/delete" &&req.method=="DELETE"){
+    if(path.pathname=="/delete" && req.method=="DELETE"){
         console.log("reached delete route");
         let body=""
         req.on("data",(chunks)=>{
@@ -83,7 +83,9 @@ client.connect().then(()=>{
     app.listen(PORT,()=>{
         console.log(`server created at http://localhost:${PORT}`);
         
-    })
+    });
+    
+}).catch((error)=>{
+    console.log(error);
     
 })
-app.listen(3000);
