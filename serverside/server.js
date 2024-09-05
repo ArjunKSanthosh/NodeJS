@@ -4,6 +4,7 @@ const fs = require("fs")
 const url =require("url");
 const queryString=require("querystring");
 const {MongoClient,ObjectId}=require("mongodb");
+const { log } = require("console");
 const client=new MongoClient("mongodb://127.0.0.1:27017/")
 const app =http.createServer(async(req,res)=>{
     //createdatabase
@@ -75,6 +76,32 @@ const app =http.createServer(async(req,res)=>{
             
         })
         
+    }
+    if(req.method="PUT"&&path.pathname=="/update"){
+        console.log("Reached to update route");
+        let body="";
+        req.on("data",(chunks)=>{
+            body+=chunks.toString();
+            console.log(body);
+        })
+        req.on("end",async()=>{
+            let data=JSON.parse(body);
+            let _id=new ObjectId(data.id);
+            let updateData={
+                name:data.name,
+                email:data.email,
+                phone:data.phone,
+                bgroup:data.bgroup,
+                gender:data.gender
+            }
+            await collection.updateOne({_id},{$set:updateData}).then(()=>{
+                res.writeHead(200,{"Content-Type":"text/plain"});
+                res.end("success")
+            }).catch(()=>{
+                res.writeHead(200,{"Content-Type":"text/plain"});
+                res.end("failed")
+            });
+        }); 
     }
     
 });
