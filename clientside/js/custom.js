@@ -1,3 +1,4 @@
+let arr=[]
 async function getDonors() {
     const res=fetch("http://localhost:3000/getdonors")
     const data=await (await res).json();
@@ -15,6 +16,7 @@ async function getDonors() {
             <button style="background-color: green;"class="bt2" onclick="handleSave('${dt._id}')">Save</button>
             <button style="background-color: red;" class="bt2" onclick="handleDelete('${dt._id}')">Delete</button>
         </div>`
+        arr.push(dt);
     })
     document.getElementById("inputs").innerHTML=str
     
@@ -83,3 +85,24 @@ async function handleDelete(id){
     }
     
 }
+
+document.getElementById("filter").addEventListener('keyup',(e)=>{
+    str=``;
+    arr.filter((i)=>i.name.toLowerCase().includes(e.target.value.toLowerCase())).map((donor)=>{
+        str+=`
+        <div class="contents">
+            <input type="text" name="name" disabled="true" id="name-${donor._id}" placeholder="name" value=${donor.name}  class="ip">
+            <input type="text" name="email" disabled="true" id="email-${donor._id}" placeholder="email" value=${donor.email} class="ip">
+            <input type="text" name="phone" disabled="true" id="phone-${donor._id}" placeholder="phone" value=${donor.phone} class="ip">
+            <input type="text" name="bgroup" disabled="true" id="bgroup-${donor._id}" placeholder="Blood Group" value=${donor.bgroup} class="ip">
+            <input type="text" name="gender" disabled="true" id="gender-${donor._id}" placeholder="Gender" value=${donor.gender} class="ip">
+        </div>
+        <div class="bts">
+            <button style="background-color: blue;" class="bt2"  onclick="handleEdit('${donor._id}')">Edit</button>
+            <button style="background-color: green;"class="bt2" onclick="handleSave('${donor._id}')">Save</button>
+            <button style="background-color: red;" class="bt2" onclick="handleDelete('${donor._id}')">Delete</button>
+        </div>`
+        
+    })
+    document.getElementById("inputs").innerHTML=str;
+})

@@ -9,7 +9,7 @@
             display: flex;
             width: 100%;
             height: 8vh;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: center;
             background-color:rgba(178, 34, 34, 0.801);
             font-family:Georgia, 'Times New Roman', Times, serif;
@@ -46,12 +46,22 @@
             font-weight: bolder;
             border-radius: 15px;
         }
-        input{
+        .ip{
             padding:10px 15px;
             border-radius: 10px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;            
             border:none;  
             margin-bottom: 2%;     
+         }
+         #filter{
+            padding:10px 15px;
+            border-radius: 10px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;            
+            border:none;  
+            margin-right: 2%;     
+         }
+         h3{
+            margin-left: 2%;
          }
     </style>
 </head>
@@ -59,8 +69,7 @@
     <nav>
 
         <h3>DONORS</h3>
-
-       
+        <input type="text" name="" id="filter" placeholder="search">
     </nav>
     <div class="btn">
       <a href="http://localhost:3000/adddonor"><button class="btt">Add Donor</button></a>  
